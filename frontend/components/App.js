@@ -61,7 +61,7 @@ const reducer =(state, action) => {
         highlightedQuote: state.highlightedQuote === action.payload ? null : action.payload
       }
     case TOGGLE_VISIBILITY:
-      return{...state}
+      return{...state, displayAllQuotes: !state.displayAllQuotes}
     default:
       return state
   }
@@ -101,8 +101,10 @@ export default function App() {
       <Quotes
         quotes={state.quotes}
         highlightedQuote={state.highlightedQuote}
+        displayAllQuotes={state.displayAllQuotes}
         editQuoteAuthenticity={editQuoteAuthenticity}
         setHighlightedQuote={setHighlightedQuote}
+        toggleVisibility={toggleVisibility}
         deleteQuote={deleteQuote}
       // 👇 lots of props are missing! Check the Quotes component
 
